@@ -65,5 +65,19 @@ namespace MsTesingWithRegex
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        //Checking for multiple email samples
+        [DataRow("91 7038008002", true)]
+        [DataRow("919652540074", false)]
+        [DataRow("9144 9682565874", false)]
+        [DataRow("91 1652598764", false)]
+        public void GivenMobileNumberValidation(string mobileNumber, bool expected) // Testing for Email Validation
+        {
+            //Act
+            bool actual = validation.MobileNumberValidation(mobileNumber);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
