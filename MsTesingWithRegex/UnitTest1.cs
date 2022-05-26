@@ -7,6 +7,13 @@ namespace MsTesingWithRegex
     [TestClass]
     public class UnitTest1
     {
+        
+        Validation validation;
+        [TestInitialize]
+        public void SetUp()
+        {
+            validation = new Validation();
+        }
         [TestClass]
         public class UserValidation
         {
@@ -43,6 +50,20 @@ namespace MsTesingWithRegex
             //Assert
             Assert.AreEqual(expected, actual);
 
+        }
+
+        [TestMethod]
+        //Checking for multiple email samples
+        [DataRow("abc123@.com", false)]
+        [DataRow("abc@abc@gmail.com", false)]
+        [DataRow("abc+100@gmail.com", true)]
+        [DataRow("abc@1.com", true)]
+        public void GivenEmailValidation(string email, bool expected) // Testing for Email Validation
+        {
+            //Act
+            bool actual = validation.EmailValidation(email);
+            //Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
