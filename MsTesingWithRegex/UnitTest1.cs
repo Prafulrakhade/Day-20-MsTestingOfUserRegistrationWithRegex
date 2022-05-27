@@ -6,8 +6,7 @@ namespace MsTesingWithRegex
 {
     [TestClass]
     public class UnitTest1
-    {
-        
+    { 
         Validation validation;
         [TestInitialize]
         public void SetUp()
@@ -76,6 +75,20 @@ namespace MsTesingWithRegex
         {
             //Act
             bool actual = validation.MobileNumberValidation(mobileNumber);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        //Checking for multiple password samples
+        [DataRow("dfghnkjghjbn", true)]
+        [DataRow("ADF@#hjdfGB", true)]
+        [DataRow("PRGkh", false)]
+        [DataRow("7084", false)]
+        public void GivenPasswordRule1Validation(string password, bool expected) // Testing for Password Rule - 1  Validation
+        {
+            //Act
+            bool actual = validation.PasswordValidation(password);
             //Assert
             Assert.AreEqual(expected, actual);
         }
