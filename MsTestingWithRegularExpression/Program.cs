@@ -50,7 +50,7 @@ namespace MsTestingWithRegularExpression
             Console.WriteLine("Rule 2 : Atleast one Uppercase letter");
             Console.WriteLine("\n\nEnter your Password : ");
             string password = Console.ReadLine(); //storing password entered by user in variable
-            bool checkPassword = validation.PasswordRule3Validation(password); //Calling method to check password follows all the rules or not with argument
+            bool checkPassword = validation.PasswordRule4Validation(password); //Calling method to check password follows all the rules or not with argument
             if (!checkPassword)//If not follow then ask user to enter password again
                 goto Password;
         }
